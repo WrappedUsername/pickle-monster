@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: MIT
 /**
-
       ::::::::: ::::::::::: ::::::::  :::    ::: :::        :::::::::: 
      :+:    :+:    :+:    :+:    :+: :+:   :+:  :+:        :+:         
     +:+    +:+    +:+    +:+        +:+  +:+   +:+        +:+          
@@ -8,7 +7,6 @@
   +#+           +#+    +#+        +#+  +#+   +#+        +#+            
  #+#           #+#    #+#    #+# #+#   #+#  #+#        #+#             
 ###       ########### ########  ###    ### ########## ##########       
-
 
         :::   :::    ::::::::  ::::    :::  :::::::: ::::::::::: :::::::::: ::::::::: 
       :+:+: :+:+:  :+:    :+: :+:+:   :+: :+:    :+:    :+:     :+:        :+:    :+: 
@@ -18,7 +16,6 @@
  #+#       #+# #+#    #+# #+#   #+#+# #+#    #+#    #+#     #+#        #+#    #+#     
 ###       ###  ########  ###    ####  ########     ###     ########## ###    ###      
 
-
       :::::::::     :::   :::   :::  :::   :::   :::::::::: ::::    ::: ::::::::::: :::::::: 
      :+:    :+:  :+: :+: :+:   :+: :+:+: :+:+:  :+:        :+:+:   :+:     :+:    :+:    :+: 
     +:+    +:+ +:+   +:+ +:+ +:+ +:+ +:+:+ +:+ +:+        :+:+:+  +:+     +:+    +:+         
@@ -26,14 +23,14 @@
   +#+       +#+     +#+  +#+   +#+       +#+ +#+        +#+  +#+#+#     +#+           +#+    
  #+#       #+#     #+#  #+#   #+#       #+# #+#        #+#   #+#+#     #+#    #+#    #+#     
 ###       ###     ###  ###   ###       ### ########## ###    ####     ###     ########       
-
 */
 pragma solidity 0.8.9;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+/// @author WrappedUsername
 contract PickleMonsterPayments is Ownable {
-    // Price will be in MATIC
+    /// @notice Price will be in MATIC
     uint256 public priceAviationArt = 18 ether;
     uint256 public priceDCSWorldMovie = 8 ether;
     uint256 public priceDCSWorldMission = 8 ether;
@@ -86,12 +83,12 @@ contract PickleMonsterPayments is Ownable {
         emit UpdatePrice(newDCSWorldMissionPrice, block.timestamp);
     }
 
-    function updateCustomAIGenerativeNFTPrice(uint256 newDCSWorldModulePrice) public payable onlyOwner {
+    function updateDCSWorldModulePrice(uint256 newDCSWorldModulePrice) public payable onlyOwner {
         priceDCSWorldModule = newDCSWorldModulePrice;
         emit UpdatePrice(newDCSWorldModulePrice, block.timestamp);
     }
 
-    function updateDCSWorldModulePrice(uint256 newCustomAIGenerativeNFTPrice) public payable onlyOwner {
+    function updateCustomAIGenerativeNFTPrice(uint256 newCustomAIGenerativeNFTPrice) public payable onlyOwner {
         priceCustomAIGenerativeNFT = newCustomAIGenerativeNFTPrice;
         emit UpdatePrice(newCustomAIGenerativeNFTPrice, block.timestamp);
     }
